@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>InkwellOcto</title>
+	<link href="web.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li id="li1"><a>About Me</a></li>
+            <div class="rect"></div>
+            <li id="li2"><a>Playable Games</a></li>
+            <div class="rect"></div>
+            <li id="li3"><a>Design Documents</a></li>
+            <div class="rect"></div>
+            <li id="li4"><a>Non-game Narratives</a></li>
+        </ul>
+    </nav>
+    <section id="intro">
+        <h1>InkwellOcto</h1>
+        <div id="introGrid">
+            <img src="" alt="">
+            <p>Dialogue, characters, overarching story, and the mechanical minutia of design.</p>
+        </div>
+    </section>
+    <section id="aboutMe">
+        <p>My name is Jay Stephens, I am a junior at Illinois State University  in the CTK Game Design track, and I am a Narrative Designer. I have  experience with traditional writing as well as game writing and I also  have a solid understanding of programming (HTML, CSS, Java, JavaScript)  alongside a passing knowledge of sound design.</p>
+        <img src="files/Me.jpg" alt="A picture of me in a hoodie. A plush Grogu sit in the hood right by my head.">
+    </section>
+    <section id="playable">
+        <h2>Playable Games</h2>
+        <div class="pieceGrid">
+            <h3>Anti-Hero</h3>
+            <iframe mozallowfullscreen="true" msallowfullscreen="true" src="https://html-classic.itch.zone/html/16469485/index.html?v=1771018643" allow="autoplay; fullscreen *; geolocation; microphone; camera; midi; monetization; xr-spatial-tracking; gamepad; gyroscope; accelerometer; xr; cross-origin-isolated; web-share" id="game_drop" frameborder="0" allowfullscreen="true" allowtransparency="true" webkitallowfullscreen="true"></iframe>
+            <button type="button" class="collapsible">Narrative Strengths!</button>
+            <p class="collText">A Twine game drpallid and I made for CTK's 2025 Game Jam based on the prompt “A Hero's Journey.”</p>
+        </div>
+        <div class="playable">
+            <h3>Everyone is Gone</h3>
+            <iframe src="https://html-classic.itch.zone/html/16553892/index.html?v=1771691578" frameborder="0" allowfullscreen="true" scrolling="no" allow="autoplay; fullscreen *; geolocation; microphone; camera; midi; monetization; xr-spatial-tracking; gamepad; gyroscope; accelerometer; xr; cross-origin-isolated; web-share" id="game_drop" allowtransparency="true" webkitallowfullscreen="true" mozallowfullscreen="true" msallowfullscreen="true"></iframe>
+            <button type="button" class="collapsible">Narrative Strengths!</button>
+            <p class="collText">A short bitsy game about a person alone at the end of the world.</p>
+        </div>
+    </section>
+    <section id="design">
+        <h2>Design Documents</h2>
+        <canvas id="canvas"></canvas>
+        <p id="designExplain">Why design docs are important.</p>
+        <iframe class="pdf" src="files/DesignDocs.pdf"  
+        title="Embedded PDF Documents" frameborder="0" allowfullscreen></iframe>  
+        <button type="button" class="collapsible">Narrative Strengths!</button>
+        <p class="collText">A few documents I have showing how I plan out writing for games.</p>
+    </section>
+    <section id="nonGame">
+        <h2>Non-Game Narratives</h2>
+            <h3>SFX Narrative</h3>
+            <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%3Atracks%3A1951184619%3Fsecret_token%3Ds-4tdaQ8lPmaO&color=%23273d77&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+            <button type="button" class="collapsible">Narrative Strengths!</button>
+            <p class="collText">A brief audio story about a very normal trip to a very normal ren-faire.</p>
+        </div>
+        <div>
+            <h3>Lord Tille</h3>
+            <iframe class="pdf" src="files/Lord Tille.pdf" title="Embedded PDF Document" frameborder="0" allowfullscreen></iframe> 
+            <button type="button" class="collapsible">Narrative Strengths!</button>
+            <p class="collText">An excerpt from the first chapter of a book I am currently writing.</p>
+        </div>
+    </section>
+<footer>
+    <a href="https://github.com/InkwellOcto/CTK" target="_blank">
+        <img id="git" src="files/github.svg" alt="The github logo.">
+        </img>
+    </a>
+    <a href="https://inkwellocto.itch.io/" target="_blank">
+        <img id="itch" src="files/itch.svg" alt="The itch.io logo.">
+        </img>
+    </a>
+    <a href="mailto:nhs.jes@gmail.com" target="_blank">
+        <img id="mail" src="files/gmail.svg" alt="The gmail logo.">
+        </img>
+    </a>
+</footer>
+
+<!-- Collapsible Elements JS-->
+<script>
+let colls = document.getElementsByClassName("collapsible");
+
+for (let i = 0; i < colls.length; i++) {
+  colls[i].addEventListener("click", function() {
+    let dropDown = this.nextElementSibling;
+    if (dropDown.style.display === "block") {
+      dropDown.style.display = "none";
+      colls[i].classList.remove("clicked");
+      
+    } else {
+      dropDown.style.display = "block";
+      colls[i].classList.add("clicked");
+    }
+  });
+} 
+</script>
+
+<script src = "web.js"></script>
+<script src = "bookmark.js"></script>
