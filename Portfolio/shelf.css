@@ -1,0 +1,601 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    align-items: center;
+    justify-content: center; 
+    background-color: var(--waterFilter);
+}
+  
+:root {
+    /* Colors */
+    --shelfD: #443E36;
+    --shelfL: #93724D;
+    --paper: #ecf4fa;
+    --paperShadow: #C5D1DB;
+    --waterFilter: #4B86B3;
+    --redBook: #A35E68;
+    --redBookBind: #61393f;
+    --bookmark: #F88DCC;
+
+    --bookCover: #A35E68;
+    --bookBind: #61393f;
+
+    /* Light Beams */
+    --teal1: #AFE0E4;
+    --teal2: #C0E6E9;
+    --teal3: #84CDD4;
+    --teal4: #7EC9D1;
+    --teal5: #97D6DC;
+    --teal6: #AEDEE2;
+    --teal7: #96D3D8;
+    --teal8: #9CD7DD;
+    --teal9: #7ECBD3;
+    --teal10: #AFE0E4;
+    --teal11: #B6DFE3;
+    --teal12: #84CDD4;  
+    
+    /* Tille Colors */
+    --brown: #503A3D;
+    --gold: #FFD642;
+}
+
+
+/* Waves */
+#waves{
+    background-color: transparent;
+    height: 50%;
+    width: 100%;
+    position: absolute;
+    top: 10%;
+    right: 0px;
+    overflow: hidden;
+}
+#sky{
+    background: linear-gradient(0deg,rgba(248, 254, 252, 1) 0%, rgba(191, 223, 248, 1) 8%, rgba(60, 107, 175, 1) 100%);    height: 20%;
+    width: 100%;
+    position: absolute;
+    top: 0%;
+    right: 0px;
+    bottom: 10%;
+    overflow: hidden;
+}
+#lightBeams{
+    background-color: transparent;
+    height: 50px;
+    width: 100%;
+    position: absolute;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    column-gap: 1px;
+    transform: translate(0,0);
+    z-index: -1;
+}
+.lights{
+    background-color: transparent;
+    transform: rotate(20deg);
+    height: 100px;
+    /* background-color: var(--teal1); */
+	display: inline-block;
+	animation-name: blinkRay;
+	animation-duration: random(4) + s;
+	animation-delay: random(4) + s;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+	animation-timing-function: linear;
+	opacity: 1;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(11, 1fr);
+}
+/*Rays of sunlight*/
+.ray{
+    height: 400%;
+    position: relative;
+}
+.r1{width: 20px; background: linear-gradient(to bottom, var(--teal1) 0%, var(--teal2) 40%, rgba(255, 255, 255,0) 100%);}
+.r2{ width: 20px; background: linear-gradient(to bottom, var(--teal3) 0%, var(--teal4) 30%, rgba(255, 255, 255,0) 100%); }
+.r3{ width: 15px; background: linear-gradient(to bottom, var(--teal5) 0%, var(--teal6) 20%, rgba(255, 255, 255,0) 100%); }
+.r4{ width: 5px; background: linear-gradient(to bottom, var(--teal7) 0%, var(--teal8) 10%, rgba(255, 255, 255,0) 100%); }
+.r5{ width: 10px; background: linear-gradient(to bottom, var(--teal9) 0%, var(--teal10) 40%, rgba(255, 255, 255,0) 100%); }
+.r6{ width: 10px; background: linear-gradient(to bottom, var(--teal5) 0%, var(--teal8) 30%, rgba(255, 255, 255,0) 100%); }
+.r7{ width: 10px; background: linear-gradient(to bottom, var(--teal9) 0%, var(--teal10) 20%, rgba(255, 255, 255,0) 100%); }
+.r8{ width: 5px; background: linear-gradient(to bottom, var(--teal5) 0%, var(--teal8) 40%, rgba(255, 255, 255,0) 100%); }
+.r9{ width: 25px; background: linear-gradient(to bottom, var(--teal9) 0%, var(--teal10) 60%, rgba(255, 255, 255,0) 100%); }
+.r10{ width: 10px; background: linear-gradient(to bottom, var(--teal5) 0%, var(--teal8) 50%, rgba(255, 255, 255,0) 100%); }
+
+
+
+
+/* Bookshelf */
+body{
+    margin: 15%;
+    background-color: var(--shelfD);
+    margin-top: 20%;
+}
+#BookCase{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1px 1fr 1px 1fr 1px;
+    margin: auto;
+    margin-top: 5%;
+    background-color: var(--shelfD);
+}
+#bookShelf1{
+    height: 20px;
+    width: 100%;
+    background: var(--shelfD);
+    background: linear-gradient(0deg, var(--shelfD) 0%, var(--shelfL) 100%);
+    display: flex;
+    margin: auto;
+}
+#bookShelf2{
+    width: 20px;
+    background-color: var(--shelfL);
+    display: flex;
+    float: left;
+    background: var(--shelfD);
+    background: linear-gradient(270deg, var(--shelfD) 0%, var(--shelfL) 100%);
+}
+#bookShelf3{
+    width: 20px;
+    background-color: var(--shelfL);
+    display: flex;
+    float: right;
+    background: var(--shelfD);
+    background: linear-gradient(90deg, var(--shelfD) 0%, var(--shelfL) 100%);
+}
+#bookShelf4{
+    height: 20px;
+    background: var(--shelfD);
+    background: linear-gradient(180deg, var(--shelfD) 0%, var(--shelfL) 100%);
+    margin: auto;
+}
+.shelf {
+    height: 7000%;
+    background: var(--shelfD);
+    background: linear-gradient(0deg, var(--shelfL) 0%, var(--shelfD) 100%);
+    grid-column: span 4;
+    position: relative;
+    z-index: 1;
+    transform: translate(0,-40%);
+}
+#takeTwo{
+    height: 10px;
+    grid-column-start: 1;
+}
+
+/* Sorting books in a row */
+section{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto 0px;
+    margin: 5% 5% 0 5%;
+    background-color: transparent;
+    column-gap: 5%;
+}
+/* .book2{
+    margin-left: -1%;
+}
+.book3{
+    margin-left: -4%;
+}
+.book4 {
+    margin-left: -7%;
+} */
+/* .lastCovers {
+    width: 87%;
+    height: 100%;
+    background-color: var(--bookCover);
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    position: relative;
+    z-index: 4;
+}
+#lastCover1 {
+    margin: auto -11% auto auto;
+}
+#lastCover2 {
+    margin: auto -13% auto auto;
+} */
+
+/* Book Covers */
+.onShelfDrawing{
+    width: 100%;
+    height: 300px;
+    background-color: transparent;
+    display: grid;
+    grid-template-rows: 1fr 1px;
+}
+
+.bookCoverBack{
+    height: 33%;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    position: absolute;
+    transform: translate(4.7%, -4.2%);
+    z-index: 2;
+}
+.shelfBind{
+    height: 35.5%;
+    background-color: var(--paper);
+    position: absolute;
+    transform: translate(.2%, -93%);
+    z-index: 3;
+}
+.paperRight{
+    height: 33.5%;
+    background-color: var(--paper);
+    position: absolute;
+    z-index: 3;
+    transform: translate(1%, -1%);
+}
+.shelfBindTri{
+    clip-path: polygon(9.5% 15%,0% 15%,9.5% 11.2%,9.5% 12%);
+    position: absolute;
+    transform: translate(-50.2%, -74.3%);
+    z-index: 1;
+    scale: .5;
+}
+.bookCover{
+    width: 100%;
+    height: 100%;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    position: relative;
+    z-index: 4;
+}
+.title {
+    grid-row-start: 2;
+    z-index: 6;
+    width: 75%;
+    margin: auto;
+    /* margin-top: -300%; */
+    background-color: transparent;
+}
+.blankBook{
+    background-color: transparent;
+    position: relative;
+    z-index: 4;
+    width: 50%;
+    grid-row-start: 2;
+}
+
+#bitsySub {
+    background-color: #CEC06C;
+    position: absolute;
+    border-radius: 10px;
+    z-index: 5;
+    transform: translate(12%,10%);
+    height: 32%;
+    width: 10%;    
+    margin: auto;
+}
+#bitsyT {
+    font-family: "Victor Mono", monospace;
+    line-height: 2;
+}
+#bitsyItalic {
+    font-family: "Victor Mono", monospace;
+    line-height: 2;
+    font-style: italic;
+    background-color: transparent;
+}
+#bitsyImg{
+    position: absolute;
+    z-index: 5;
+    transform: translate(50%, 60%);
+    background-color: transparent;
+}
+#imgOutline {
+    position: absolute;
+    z-index: 5;
+    transform: translate(35%, 53.5%);
+    border-radius: 10px;
+    background-color: #8B3636;
+}
+#twineBorder{
+    border-style: solid;
+    border-color: #E6A31E;
+    border-width: 2%;
+    border-radius: 25px;
+    position: absolute;
+    z-index: 5;
+    transform: translate(6%,0%);
+    background-color: transparent;
+}
+#twineTitle{
+    color: white;
+    font-family: "Galdeano", sans-serif;
+}
+#twineImg{
+    position: absolute;
+    z-index: 5;
+    transform: translate(21%, 21%);
+    background-color: transparent;
+    width: 9%;
+}
+#kingImg{
+    position: absolute;
+    z-index: 5;
+    transform: translate(0%, -10%);
+    background-color: transparent;
+    width: 13%;
+}
+#kingCover{
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    position: absolute;
+    z-index: 4;
+    background-image: conic-gradient(rgb(107, 68, 1) 0deg, rgb(107, 68, 1) 90deg, rgb(106, 4, 0) 90deg, rgb(106, 4, 0) 180deg, rgb(15, 88, 0) 180deg, rgb(15, 88, 0) 270deg, rgb(0, 96, 105) 270deg, rgb(0, 96, 105) 360deg);
+}
+#sfxT{
+    font-family: "IBM Plex Sans JP", sans-serif;
+    color: #eae9e7;
+}
+#sfxImg{
+    position: absolute;
+    z-index: 5;
+    background-color: transparent;
+    width: 10px;
+    height: 10px;
+    margin-top: 5%;
+}
+#ft2{
+    color: #EEEEEE;
+    font-family: "Eagle Lake", serif;
+    width: 45%;
+}
+#tilleCover {
+    position: absolute;
+    z-index: 5;
+    transform: translate(5%,0);
+    background-color: transparent;
+}
+.horLines{
+background: linear-gradient(90deg, var(--gold) 25px, var(--brown) 25px, var(--brown) 70%, var(--gold) 70%);
+}
+.verLinesL{
+    display: flex;
+    float: left;
+    background: linear-gradient(0deg, var(--gold) 11%, var(--brown) 11%, var(--brown) 88.7%, var(--gold) 88.7%);
+}
+.verLinesR{
+    display: flex;
+    float: right;
+    background: linear-gradient(0deg, var(--gold) 11%, var(--brown) 11%, var(--brown) 88.7%, var(--gold) 88.7%);
+}
+.lilGapV{
+    display: flex;
+    float: left;
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+}
+.lilGapVR{
+    display: flex;
+    float: right;
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+}
+#bigGap{
+    background-color: transparent;
+}
+.lilGap{
+    background-color: transparent;
+}
+#circleFrame{
+    background-color: var(--brown);
+    display: flex;
+    float: left;
+    border-radius: 100%;
+    transform: translate(30.3px, 5px);
+    position: absolute;
+    z-index: 5;
+}
+#circleGold{
+    background: radial-gradient(ellipse, var(--gold) 68%, rgba(153, 128, 40, 1) 71%);
+    display: flex;
+    float: left;
+    border-radius: 100%;
+    transform: translate(27.3px, 0px);
+    position: absolute;
+    z-index: 4;
+}
+.blurThis{
+    filter: blur(10px);
+}
+
+
+.card{
+    margin: auto;
+    /* height: 10%; */
+}
+.cardText{
+    position: relative;
+    display: flex;
+}
+#playableSign{
+    z-index: 6;
+    position: absolute;
+    background-color: white;
+    margin: auto;
+    filter: drop-shadow(4px 2px 10px black);
+    transform: translate(-10%,-25%) skew(-5deg);;
+}
+.backOfCard{
+    z-index: 5;
+    position: absolute;
+    background-color: white;
+    margin: auto;
+    transform: translate(8%,-28%) skew(5deg);
+} 
+#playableSign p {
+    padding: 10%;
+    font-size: 150%;
+    background-color: transparent;
+}
+#playableSign img {
+    margin-top: 10%;
+    scale: 400%;
+    background-color: transparent;
+}
+
+
+/* Book Interior */
+.insideCover{
+    display: none;
+    position: absolute;
+    background-color: transparent;
+    position: fixed;
+    z-index: 10;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+.insideCoverLeft{
+    position: absolute;
+    height: 100%;
+    width: 49%;
+    left: 51%;
+    transform: translate(-0%, 0%);
+    background-color: var(--redBook);
+    z-index: -1;
+    border-radius: 25px;
+}
+.insideCoverRight{
+    position: absolute;
+    height: 100%;
+    width: 49%;
+    left: 49%;
+    transform: translate(-100%, 0%);
+    background-color: var(--redBook);
+    z-index: -1;
+    border-radius: 25px;
+}
+.bind{
+    position: absolute;
+    height: 102%;
+    width: 5%;
+    left: 50%;
+    transform: translate(-50%, -1%);
+    background-color: var(--redBookBind);
+    z-index: -1;
+    border-radius: 10px;
+}
+.innerBind{
+    position: absolute;
+    height: 95%;
+    width: .1%;
+    left: 50%;
+    transform: translate(-50%, 2.6%);
+    background-color: #A7AFB5;
+    z-index: 0;
+    border-radius: 10px;
+}
+.bookmarker{
+    width: 5%;
+    height: 8%;
+    background-color: var(--bookmark);
+    position: absolute;
+    left: 5%;
+    transform: translate(-5%, 30%);
+}
+.return{
+    background-color: #5A0F3B;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform: translate(-55%, -5%);
+    clip-path: polygon(75% 25%, 25% 50%, 75% 75%);
+    z-index: 5;
+}
+.leftTri{
+    background-color: var(--bookmark);
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    transform: translate(-101%, 199%);
+    clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
+}
+.rightTri{
+    background-color: var(--bookmark);
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    transform: translate(0%, 200%);
+    clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
+}
+.pagesGrid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: transparent;
+    height: 100%;
+}
+.page{
+    background-color: var(--paper);
+    height: 95%;
+}
+.pg1{
+    margin: auto 0 auto 5%;
+    background: #D9E5EF;
+    background: linear-gradient(90deg, var(--paper) 80%, var(--paperShadow) 100%);
+}
+.desc{
+    font-size: 10px;
+    background-color: transparent;
+    margin: 10%;
+    margin-top: 15%;
+}
+#siteExplain{
+    margin-top: 2%;
+}
+.stickynote{
+    background-color: green;
+    width: 50%;
+    margin: auto;
+    padding: 2.5%;
+    filter: drop-shadow(1px 3px 2px black);
+}
+h2{
+    background-color: transparent;
+    font-size: 150%;
+}
+.skills{
+    font-size: 130%;
+    background-color: transparent;
+    line-height: 1.5;
+}
+.pg2{
+    margin: auto 5% auto 0;
+    background: #D9E5EF;
+    background: linear-gradient(270deg, var(--paper) 80%, var(--paperShadow) 100%);
+    width: 95%;
+}
+.game{
+    background-color: transparent;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+h3{
+    background-color: transparent;
+    margin: 10% 10% 5% 10%;
+    font-size: 40px;
+}
+img {
+    display: block;
+    width: 10%;
+    object-fit: cover;
+    margin: auto;
+}
+#pageBlur{
+    display: none;
+    position: fixed;
+    z-index: 10;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    opacity: 75%;
+    background-color: #355e7d;
+}
