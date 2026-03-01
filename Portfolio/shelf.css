@@ -88,14 +88,7 @@
     background-color: transparent;
     transform: rotate(20deg);
     height: 100px;
-    /* background-color: var(--teal1); */
 	display: inline-block;
-	animation-name: blinkRay;
-	animation-duration: random(4) + s;
-	animation-delay: random(4) + s;
-	animation-iteration-count: infinite;
-	animation-direction: alternate;
-	animation-timing-function: linear;
 	opacity: 1;
     width: 100%;
     display: grid;
@@ -117,7 +110,24 @@
 .r9{ width: 25px; background: linear-gradient(to bottom, var(--teal9) 0%, var(--teal10) 60%, rgba(255, 255, 255,0) 100%); }
 .r10{ width: 10px; background: linear-gradient(to bottom, var(--teal5) 0%, var(--teal8) 50%, rgba(255, 255, 255,0) 100%); }
 
+/* Fish */
+/* #gold{
+    background: transparent;
+    position: absolute;
+    top: 45%;
+    left: -10%;
+    animation: gold 25s infinite;
+    rotate: 25deg;
+    z-index: -0;
+}
 
+@keyframes gold {
+    0% {left: -10%;}
+    49% {left: 30%; transform: scaleX(1); top: 55%; rotate: 25deg;}
+    50% {left: 30%; transform: scaleX(-1); top: 55%; rotate: -25deg;}
+    99% {left: -10%; transform: scaleX(-1); top: 65%; rotate: -25deg;}
+    100% {left: -10%; top: 45%;}
+} */
 
 
 /* Bookshelf */
@@ -133,6 +143,7 @@ body{
     margin: auto;
     margin-top: 5%;
     background-color: var(--shelfD);
+    z-index: 2;
 }
 #bookShelf1{
     height: 20px;
@@ -806,4 +817,16 @@ img {
 }
 #socials img:hover{
     scale: 1.5;
+}
+.mbText{
+    font-family: Bahnschrift, sans-serif;
+}
+#kingText{
+  font-family: "Caudex", serif;
+}
+#sfxText{
+    font-family: "IBM Plex Sans", sans-serif;
+}
+#lordText{
+    font-family: "Eagle Lake", serif;
 }
