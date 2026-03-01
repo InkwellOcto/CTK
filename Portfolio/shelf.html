@@ -7,10 +7,13 @@
     
     <!-- Fonts -->
     <style>
-      @import url('https://fonts.googleapis.com/css2?family=Eagle+Lake&family=Galdeano&family=IBM+Plex+Sans+JP&family=Victor+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Coming+Soon&family=Eagle+Lake&family=Galdeano&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Victor+Mono:ital,wght@0,100..700;1,100..700&display=swap');
     </style>
+
 </head>
 <body onload="shelfLength()">
+    <div id="load">
+    </div>
     <div id="pageBlur">
     </div>
 
@@ -128,7 +131,7 @@
         <section>
             <!-- First Book -->
             <div class="onShelfDrawing book1 ">
-                <p class="title t1" id="bitsyT" onclick="clickCover1()">Everyone is <span id="bitsyItalic">Gone</span></p>
+                <p class="title t1" id="bitsyT" onclick="clickCover1()">Everyone is <span class="bitsyItalic">Gone</span></p>
                 <svg class="bookCoverBack" onclick="clickCover1()"></svg>
                 <svg class="paperRight" onclick="clickCover1()"></svg>
                 <svg class="shelfBind" onclick="clickCover1()"></svg>
@@ -154,7 +157,7 @@
                             <p class="desc">Everyone is Gone is a short game in bisty, an engine defined by constraints what with its low pixel count, small word limit per text box, and a max of three-colors per room among other things. Because of the engine, I had to really focus on design details; making sure camera perspective were coherent to players—top down or from the side—and the item descriptions—as all text in this game is internal dialogue—were written in such a way that players understood the overall story was a challenge, but it was the first time I really felt like a Narrative Designer. Coming up with the story, figuring out how that could be portrayed, and working with the limitations of the engine was enthralling, and I was very happy to get back into it when updating the game for this portfolio.
                             </p>
                             <div class="stickynote">
-                                <h2>Skills:</h2>
+                                <h2 class="subtitle">Skills:</h2>
                                 <p class="skills">
                                     <br>bitsy
                                     <br>Game design principles
@@ -165,8 +168,11 @@
                             </div>
                         </div>
                         <div class="page pg2">
-                            <h3>Everyone is Gone</h3>
-                            <iframe class="game" frameborder="0" src="https://itch.io/embed-upload/16553892?color=333333" allowfullscreen="" width="640" height="380"></iframe>
+                            <div id="goneText">
+                                <h3>Everyone is</h3>
+                                <h3><span class="bitsyItalic">Gone</span></h3>
+                            </div>
+                            <iframe class="game" frameborder="0" src="https://itch.io/embed-upload/16634843?color=235139" allowfullscreen="" width="640" height="380"></iframe>
                         </div>
                         </div>
                     </div>
@@ -179,7 +185,7 @@
                 <svg class="paperRight"></svg>
                 <svg id="twineBorder" onclick="clickCover2()"></svg>
                 <svg class="shelfBind"></svg>
-                <img id="twineImg" src="files/Book.png" alt="Two hand-drawn sturgeons whose bodies bend to form a heart; the sturgeons are looking into eachother's eyes, their tails touch at the bottom of the heart." onclick="clickCover1()">
+                <img id="twineImg" src="files/Book.png" alt="Two hand-drawn sturgeons whose bodies bend to form a heart; the sturgeons are looking into eachother's eyes, their tails touch at the bottom of the heart." onclick="clickCover2()">
                 <svg class="shelfBindTri"></svg>
                 <svg class="bookCover" onclick="clickCover2()"></svg>
                 <div class="insideCover">
@@ -198,17 +204,17 @@
                             <p class="desc">My latest and most difficult work, Anti-Hero is a Twine game made by myself and drpallid for CTK's 2025 weekend Game Jam, based on the prompt “A Hero's Journey.” While my friend handled art and CSS, my job was to write the branching story and program Sugarcube elements that control the games few mechanics, for instance how much money a player has. After showcasing our work and getting feedback from players, drpallid and I have continued to work on Anti-Hero, with our 1.1 update having released on 2/14/2026 which fixed some of the minor error's my friend and I made in the final, sleep-deprived hours of the Game Jam. This is probably the work I am most proud of, and I cannot wait to create more stories like this!
                             </p>
                             <div class="stickynote">
-                                <h2>Skills:</h2>
+                                <h2 class="subtitle">Skills:</h2>
                                 <p class="skills">
                                     <br>Twine
-                                    <br>Feedback response and iteration
-                                    <br>Basic programming principles
+                                    <br>Feedback into iteration
+                                    <br>Programming principles
                                     <br>Time management
                                     <br>Branching narratives
                                 </p>
                             </div>
                         </div>
-                        <div class="page pg2">
+                        <div class="page pg2" id="antiText">
                             <h3>Anti-Hero</h3>
                             <iframe class="game" frameborder="0" src="https://itch.io/embed-upload/16469485?color=421b54" allowfullscreen="" width="640" height="380"><a href="https://inkwellocto.itch.io/anti-hero">Play Anti-Hero (v1.1) on itch.io</a></iframe>
                         </div>
@@ -229,10 +235,12 @@
 
             <!-- 4th Book -->
             <div class="onShelfDrawing book3">
-                <p class="title t3" onclick="clickCover3()">About me</p>
+                <p class="title t3" id="aboutTitle" onclick="clickCover3()">About me</p>
                 <svg class="bookCoverBack"></svg>
                 <svg class="paperRight"></svg>
                 <svg class="shelfBind"></svg>
+                <img id="aboutIcon" onclick="clickCover3()" src="files/journal.svg" alt="An icon of a book.">
+                <img id="aboutIconPerson" onclick="clickCover3()" src="files/person.svg" alt="An icon of a person.">
                 <svg class="shelfBindTri"></svg>
                 <svg class="bookCover" onclick="clickCover3()"></svg>
                 <div class="insideCover">
@@ -247,17 +255,28 @@
                         </div>
                         <div class="bind"></div>
                         <div class="pagesGrid">
-                            <div class="page pg1">
-                            <p class="desc">My name is Jay Stephens, I am a junior at Illinois State University  in the CTK Game Design track, and I am a Narrative Designer. I have  experience with traditional writing as well as game writing and I also  have a solid understanding of programming (HTML, CSS, Java, JavaScript)  alongside a passing knowledge of sound design.
+                            <div class="page pg1" id="aboutMeGrid">
+                            <p class="desc" id="whoIAm">My name is Jay Stephens, I am a junior at Illinois State University  in the CTK Game Design track, and I am a Narrative Designer. I have  experience with traditional writing as well as game writing and I also  have a solid understanding of programming (HTML, CSS, Java, JavaScript)  alongside a passing knowledge of sound design.
                             </p>
-                                <h2>This site:</h2>
-                            <p class="desc" id="siteExplain">
+                                <h2 class="subtitle" id="thisSite">This site:</h2>
+                            <p id="siteExplain">
                                 This website was created by me and shows my HTML, CSS, and JavaScript capabilities! I started working on this portfolio page sometime in the afternoon on 2/20/2026, though I began working on my portfolio pieces much earlier than that. I don't have much to say in regards to this site, as I feel my work mostly speaks for itself, but I will say that I am proud I managed to get this to a state where I felt comfortable sharing it with you all, so thank you for giving it a look! 
                             </p>
                         </div>
-                        <div class="page pg2">
+                        <div class="page pg2" id="aboutText">
                             <h3>About me</h3>
-                            <img class="pdf" src="files/Me.jpg" alt="A picture of me in a hoodie. A plush Grogu sit in the hood right by my head.">
+                            <img id="myFace" src="files/Me.jpg" alt="A picture of me in a hoodie. A plush Grogu sit in the hood right by my head.">
+                            <div id="socials">
+                                <a href="https://github.com/InkwellOcto" target="_blank">
+                                    <img src="files/github.svg" alt="A github icon.">
+                                </a>
+                                <a href="https://inkwellocto.itch.io/" target="_blank">
+                                    <img src="files/itch.svg" alt="An itch.io icon.">
+                                </a>
+                                <a href="mailto:nhs.jes@gmail.com" target="_blank">
+                                    <img src="files/gmail.svg" alt="A gmail icon.">
+                                </a>
+                            </div>
                         </div>
                         </div>
                     </div>
@@ -280,16 +299,16 @@
 
             <!-- 2nd Book -->
             <div class="onShelfDrawing book2">
-                <p class="title t2" onclick="clickCover4()">Make Believe - Module 1 Outline</p>
-                <svg class="bookCoverBack"></svg>
+                <p class="title t2 questT" onclick="clickCover4()">Make Believe - Module 1 Outline</p>
+                <svg class="bookCoverBack questCoverL"></svg>
                 <svg class="paperRight"></svg>
-                <svg class="shelfBind"></svg>
-                <svg class="shelfBindTri"></svg>
-                <svg class="bookCover" onclick="clickCover4()"></svg>
+                <svg class="shelfBind questTop"></svg>
+                <svg class="shelfBindTri questTri"></svg>
+                <svg class="bookCover questCoverL" onclick="clickCover4()"></svg>
                 <div class="insideCover">
-                        <div class="insideCoverLeft"></div>
+                        <div class="insideCoverLeft questCoverL"></div>
                         <div class="innerBind"></div>
-                        <div class="insideCoverRight"></div>
+                        <div class="insideCoverRight questCoverR"></div>
                         <div class="bookmarker" onclick="bookmark()">
                             <svg class="return"></svg>
                             <p class="bmText"></p>
@@ -302,7 +321,7 @@
                             <p class="desc">The core of the document is to act as a guide for further planning by providing brief information about main locations, the world at large, and the game's main encounters, those being the fights players have to complete for story beats as opposed to random encounters while travelling. Mostly it's macro-scale planning and making sure mechanics and story have direct connections to one another as early in the design process as possible.
                             </p>
                             <div class="stickynote">
-                                <h2>Skills:</h2>
+                                <h2 class="subtitle">Skills:</h2>
                                 <p class="skills">
                                     <br>Location creation
                                     <br>World building
@@ -322,16 +341,16 @@
 
             <!-- 3rd Book -->
             <div class="onShelfDrawing book3">
-                <p class="title t3" onclick="clickCover5()">Honey Ham Questline</p>
-                <svg class="bookCoverBack"></svg>
-                <svg class="paperRight"></svg>
-                <svg class="shelfBind"></svg>
-                <svg class="shelfBindTri"></svg>
-                <svg class="bookCover" onclick="clickCover5()"></svg>
+                <p class="title t3 questT" onclick="clickCover5()">Honey Ham Questline</p>
+                <svg class="bookCoverBack questCoverR"></svg>
+                <svg class="paperRight "></svg>
+                <svg class="shelfBind questTop"></svg>
+                <svg class="shelfBindTri questTri"></svg>
+                <svg class="bookCover questCoverR" onclick="clickCover5()"></svg>
                 <div class="insideCover">
-                        <div class="insideCoverLeft"></div>
+                        <div class="insideCoverLeft questCoverL"></div>
                         <div class="innerBind"></div>
-                        <div class="insideCoverRight"></div>
+                        <div class="insideCoverRight questCoverR"></div>
                         <div class="bookmarker" onclick="bookmark()">
                             <svg class="return"></svg>
                             <p class="bmText"></p>
@@ -344,7 +363,7 @@
                             <p class="desc">The Honey Ham Questline is a multipage document outlining the structure of a single RPG quest. The point of a document like this is to get further into the weeds of the story-mechanic connection so programmers, artists, and other writers all have something to refer to when working on the project. What items are found where, what journal entries update after which encounters, and NPC's players can interact with and more are all explained here, formatted professionally.
                             </p>
                             <div class="stickynote">
-                                <h2>Skills:</h2>
+                                <h2 class="subtitle">Skills:</h2>
                                 <p class="skills">
                                     <br>Professional formatting
                                     <br>Detail planning
@@ -389,7 +408,7 @@
                             This is The Four Kingdoms' rule book, which I wrote! Its the first rulebook I ever put together making it a pretty important piece in my creative history, and it still feels like a big accomplishment to me even though I would make it differently today.
                             </p>
                             <div class="stickynote">
-                                <h2>Skills:</h2>
+                                <h2 class="subtitle">Skills:</h2>
                                 <p class="skills">
                                     <br>Collaboration
                                     <br>Communication
@@ -435,7 +454,7 @@
                             <p class="desc">This short-story of a person going to a ren-faire and buying a cursed object is told only through sound effects mixed in Abode Audition, and shows off my audio design skills. While I may not have a penchant for music, I absolutely love sound effects and take any chance I get to work with them. Finding the right sounds, eq-ing them so to be tinny or boomy or muffled, and then combining them to support or outright tell a story is something I cannot get enough of! I am especially proud of the sound work in this project; there is never a moment where less than two tracks are playing to create the auditory space.
                             </p>
                             <div class="stickynote">
-                                <h2>Skills:</h2>
+                                <h2 class="subtitle">Skills:</h2>
                                 <p class="skills">
                                     <br>Audition
                                     <br>Sound effects
@@ -445,7 +464,7 @@
                         </div>
                         <div class="page pg2">
                             <h3>SFX Narrative</h3>
-                            <iframe width="90%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%3Atracks%3A1951184619%3Fsecret_token%3Ds-4tdaQ8lPmaO&color=%23273d77&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+                            <iframe id="sfxFile" width="90%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%3Atracks%3A1951184619%3Fsecret_token%3Ds-4tdaQ8lPmaO&color=%23273d77&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
                         </div>
                         </div>
                     </div>
@@ -512,7 +531,7 @@
                             <p class="desc">A high fantasy buddy cop-Esk story staring an aging Lord and a young witch as they travel across the land to clear their names and uncover who really kidnapped King Ionnes, Lord Tille is the reason I am a narrative designer. I never took my writing seriously, but with encouragement from a teacher I started making a book on a whim, and here we are. This story has been re-written and re-edited several times, and with my most recent edits I was finally able to tackle some of this piece's oldest problems. I've known about these issues since I first wrote the text; I knew some sentences refused to flow and certain words felt out of place, but I didn't know how to address them. However, while brushing up my portfolio I finally came up with solutions, and was glad to see this part of Tille's story achieve the quality I always hoped for it.
                             </p>
                             <div class="stickynote">
-                                <h2>Skills:</h2>
+                                <h2 class="subtitle">Skills:</h2>
                                 <p class="skills">
                                     <br>Problem Solving
                                     <br>Traditional creative writing
@@ -551,6 +570,7 @@
     let bookNum;
     let bookTF = false;
     let loopCount = 0;
+
     function shelfLength(){
         //* Header formatting *//
             let waves = document.getElementById("waves");
@@ -611,9 +631,10 @@
             let insideBackL = document.getElementsByClassName("insideCoverLeft");
             let insideSpine = document.getElementsByClassName("bind");
 
+
             //Book colors arrays
             const colors = ["#437265", "#421B54", "#A2B5FA", "#44845C", "#44845C", "transparent", "#144E7F", "#694835"];
-            const colorsSpine = ["#335852","#5A2572","#5477f6", "#305c40", "#305c40", "#101C26", "#081f33", "#FFD642"]
+            const colorsSpine = ["#335852","#5A2572","#5477f6", "#DEA9FF", "#DEA9FF", "#101C26", "#081f33", "#FFD642"]
 
             //Book titles
             let titles = document.getElementsByClassName
@@ -630,6 +651,9 @@
 
             //Book2 specific elements
             let twineBorder = document.getElementById("twineBorder");
+
+            //Book4 and Book5 specific elements
+            let questCover = document.getElementsByClassName("questCover");
 
             //Book6 specific elements
             let nonBlur =  document.getElementById("kingCover");
@@ -659,8 +683,7 @@
                 papersTop[i].style.height = (front[i].clientHeight*.41) + "px";
 
                 //Polygons of shelf book elements
-                papersTop[i].style.clipPath = "polygon("+ (wide+5.5) +"px 25%,2% 21%,4.5% 19%,"+ (wide+5.5) +"px 19%)";
-                back[i].style.clipPath = "polygon("+ (wide-5) +"px 100%,0% 100%,0% 0%,"+ (wide-5) +"px 0%)";
+                papersTop[i].style.clipPath = "polygon("+ (wide+5.5) +"px 25%,.5% 21%,1.5% 18.5%,"+ (wide+5.5) +"px 18.5%)";
                 papersSide[i].style.clipPath = "polygon("+ (wide/3 - 2) +"% 0, "+ (wide/3 - 2) +"% 100%, "+(wide+3)+"px 95.5%, "+(wide+3)+"px 0)";
 
                 //Colors of shelf book elements
@@ -679,23 +702,23 @@
             titles[0].style.fontSize =  (front[1].clientWidth * .1) + "px";    
 
             titles[1].style.marginTop =  (front[1].clientHeight * -.85) + "px";
-            titles[1].style.fontSize =  (front[1].clientWidth * .15) + "px";   
+            titles[1].style.fontSize =  (front[1].clientWidth * .19) + "px";   
 
-            titles[2].style.marginTop =  (front[1].clientHeight * -.8) + "px";
-            titles[2].style.fontSize =  (front[1].clientWidth * .1) + "px";   
+            titles[2].style.marginTop =  (front[1].clientHeight * -.85) + "px";
+            titles[2].style.fontSize =  (front[1].clientWidth * .16) + "px";   
 
             titles[3].style.marginTop =  (front[1].clientHeight * -.8) + "px";
-            titles[3].style.fontSize =  (front[1].clientWidth * .1) + "px";   
+            titles[3].style.fontSize =  (front[1].clientWidth * .15) + "px";   
 
             titles[4].style.marginTop =  (front[1].clientHeight * -.8) + "px";
-            titles[4].style.fontSize =  (front[1].clientWidth * .1) + "px";   
+            titles[4].style.fontSize =  (front[1].clientWidth * .15) + "px";   
 
             titles[6].style.marginTop =  (headphones.offsetHeight * -17) + "px";
             titles[6].style.width =  (headphones.offsetWidth / 2) + "px";
             titles[6].style.fontSize =  (headphones.offsetWidth * .1) + "px";   
             titles[6].style.transform = "scale("+ (front[1].clientWidth * 13) +"%)";
 
-            titles[7].style.marginTop =  (front[1].clientHeight / -1.3) + "px";
+            titles[7].style.marginTop =  (front[1].clientHeight / -1.4) + "px";
             titles[7].style.fontSize =  (front[1].clientWidth * .17) + "px";   
     
             //Book1 specific elements
@@ -710,6 +733,12 @@
             twineBorder.style.width = (front[1].clientWidth * .85) + "px";
             twineBorder.style.height = (front[1].clientHeight * .9) + "px";
 
+            //Book4 and Book5 specific elements
+            // front[3].style.height = (w * .18 - 5) + "px";
+            // front[4].style.height = (w * .18 - 5) + "px";
+            papersTop[3].style.clipPath = "polygon("+ (wide+5.5) +"px 25%,.5% 21%,1.5% 18.5%,"+ (wide+5.5) +"px 18.5%)";
+            papersTop[4].style.clipPath = "polygon("+ (wide+5.5) +"px 25%,.5% 21%,1.5% 18.5%,"+ (wide+5.5) +"px 18.5%)";
+
             //Book6 specific elements
             nonBlur.style.height = front[1].clientHeight + "px";
             nonBlur.style.width = front[1].clientWidth + "px";
@@ -719,7 +748,7 @@
             insideBackL[5].style.backgroundImage = "conic-gradient(#6B4401 0deg, #6B4401 90deg, #6A0400 90deg, #6A0400 180deg, #0F5800 180deg, #0F5800 270deg, #006069 270deg, #006069 360deg)";
 
             //Book7 specific elements
-            headphones.style.transform = "scale("+ (front[1].clientWidth * 13) +"%) translate(42%, " + (- (sfxTitle.clientHeight * 3.3 )) +"%)";
+            headphones.style.transform = "scale("+ (front[1].clientWidth * 13) +"%) translate(39%, " + (- (sfxTitle.clientHeight * 3.3 )) +"%)";
 
             //Book8 specific elements
             tilleCoverImg.style.width = (front[1].clientWidth * .92) + "px";
@@ -729,7 +758,7 @@
             for(i=0; i< tilleLinesTB.length; i++){
                 tilleLinesTB[i].style.height = (front[1].clientHeight / (12*3.5)) + "px";
                 tilleLinesTB[i].style.width = (tilleCoverImg.clientWidth - 2) + "px";
-                tilleLinesTB[i].style.background  = "linear-gradient(90deg, var(--gold) 25px, var(--brown) 25px, var(--brown) "+ (tilleLinesTB[i].clientWidth - 20) +"px, var(--gold) "+ (tilleLinesTB[i].clientWidth - 20) +"px)";
+                tilleLinesTB[i].style.background  = "linear-gradient(90deg, var(--gold) 25px, var(--brown) 25px, var(--brown) "+ (tilleLinesTB[i].clientWidth - 25) +"px, var(--gold) "+ (tilleLinesTB[i].clientWidth - 25) +"px)";
             }
             for(i=0; i< lilGap.length; i++){
                 lilGap[i].style.height = (front[1].clientHeight / (12*5)) + "px";
@@ -746,11 +775,11 @@
                 verLinesR[i].style.width = (front[1].clientHeight / (12*3.5)) + "px";
             }
 
-            circleFrame.style.height = (verLinesR[1].offsetHeight - (tilleLinesTB[1].offsetHeight * 3 + lilGapV[1].offsetHeight * 1 + verLinesR[1].offsetWidth * 4) - 1.3 + "px")
-            circleFrame.style.width = (tilleLinesTB[1].offsetWidth - (verLinesR[1].offsetWidth * 6.5 + lilGapVR[1].offsetWidth * 4) - 4) + "px";
+            circleFrame.style.height = (verLinesR[1].offsetHeight - (tilleLinesTB[1].offsetHeight * 3 + lilGapV[1].offsetHeight * 1 + verLinesR[1].offsetWidth * 4) - 1.3 + "px");
+            circleFrame.style.width = (tilleLinesTB[1].offsetWidth - (verLinesR[1].offsetWidth * 6.5 + lilGapVR[1].offsetWidth * 4)) + "px";
 
-            circleGold.style.height = (verLinesR[1].offsetHeight - (tilleLinesTB[1].offsetHeight * 3 + lilGapV[1].offsetHeight * 1 + verLinesR[1].offsetWidth * 2) - 4.3 + "px")
-            circleGold.style.width = (tilleLinesTB[1].offsetWidth - (verLinesR[1].offsetWidth * 5.5 + lilGapVR[1].offsetWidth * 4) - 4) + "px";
+            circleGold.style.height = (verLinesR[1].offsetHeight - (tilleLinesTB[1].offsetHeight * 3 + lilGapV[1].offsetHeight * 1 + verLinesR[1].offsetWidth * 2) - 4.3 + "px");
+            circleGold.style.width = (tilleLinesTB[1].offsetWidth - (verLinesR[1].offsetWidth * 5.5 + lilGapVR[1].offsetWidth * 4)) + "px";
             
             //If inside of a book, resize the book
             if(bookTF){
@@ -787,7 +816,44 @@
             }     
 
         // *The Signs* // 
+
     }
+
+    // *Load Screen* //
+        let loadFlag = false;
+        let loadCounter = 0;
+        let opac = 100;
+        let times = setInterval(animation, 7);
+
+        function animation(){
+        if(loadFlag == true){
+            clearInterval(times);
+        }
+        if(loadCounter > 60){
+            opac--;
+            if(opac < 50){
+                opac--;
+            }
+            if(opac < 25){
+                opac--;
+            }
+
+            let loadScreen = document.getElementById("load");
+            loadScreen.style.opacity = opac + "%";
+
+            if(opac < 10){
+                loadScreen.style.opacity = 0 + "%";
+                loadFlag == true;
+                loadScreen.style.display = "none";
+                clearInterval(times);
+            }      
+        }
+        else{
+            loadCounter++;
+        }
+          
+    }
+    // *Load Screen* //
 
     function clickCover1(){
         genCorrectBook(0)
@@ -836,63 +902,8 @@
 
         //Determine width and height for playable games
         let pg2 = document.getElementsByClassName("pg2");
-        let pg2Height = pg2[i].offsetHeight;
-        let pg2Width = pg2[i].offsetWidth;
-
-
         let pg2Iframe = document.getElementsByClassName("game");
-        if(i == 0 || i == 1){
-            if((pg2Width * .9) > pg2Height){
-                pg2Iframe[i].style.width = (pg2Width*.7) + "px";
-                pg2Iframe[i].style.height = (pg2Width * .7) + "px";
-            }
-            else if((pg2Width * 1.2) > pg2Height){
-                pg2Iframe[i].style.width = (pg2Height * .7) + "px";
-                pg2Iframe[i].style.height = (pg2Height * .7) + "px";
-            }
-            else if((pg2Width * 1.5) > pg2Height){
-                pg2Iframe[i].style.width = (pg2Height * .6) + "px";
-                pg2Iframe[i].style.height = (pg2Height * .6) + "px";
-            }
-            else if((pg2Width * 1.8) > pg2Height){
-                pg2Iframe[i].style.width = (pg2Height * .5) + "px";
-                pg2Iframe[i].style.height = (pg2Height * .5) + "px";
-            }
-            else if((pg2Width * 2.1) > pg2Height){
-                pg2Iframe[i].style.width = (pg2Height * .4) + "px";
-                pg2Iframe[i].style.height = (pg2Height * .4) + "px";
-            }
-            else if((pg2Width * 2.4) > pg2Height){
-                pg2Iframe[i].style.width = (pg2Height * .3) + "px";
-                pg2Iframe[i].style.height = (pg2Height * .3) + "px";
-            }
-        }
-
-        //Determine width and height for pdfs
-        let pdfs = document.getElementsByClassName("pdf");
-        for(let j = 0; j < pdfs.length; j++){
-            if((pg2Width * 1.2) > pg2Height){
-                pdfs[j].style.width = (pg2Width*.7) + "px";
-                pdfs[j].style.height = (pg2Width * .7) + "px";
-            }
-            else if((pg2Width * 1.5) > pg2Height){
-                pdfs[j].style.width = (pg2Height * .6) + "px";
-                pdfs[j].style.height = (pg2Height * .6) + "px";
-            }
-            else if((pg2Width * 1.8) > pg2Height){
-                pdfs[j].style.width = (pg2Height * .5) + "px";
-                pdfs[j].style.height = (pg2Height * .5) + "px";
-            }
-            else if((pg2Width * 2.1) > pg2Height){
-                pdfs[j].style.width = (pg2Height * .4) + "px";
-                pdfs[j].style.height = (pg2Height * .4) + "px";
-            }
-            else if((pg2Width * 2.4) > pg2Height){
-                pdfs[j].style.width = (pg2Height * .3) + "px";
-                pdfs[j].style.height = (pg2Height * .3) + "px";
-            }
-        }
-            
+        let insideCoverLeft = document.getElementsByClassName("insideCoverLeft");
 
         //Calc distance from top then rectify
         if(loopCount == 0){
@@ -909,11 +920,50 @@
             loopCount = 1;
         }     
         
-        //fontsize
+        //fontsize desc and h3
         let text = document.getElementsByClassName("desc");
-        for(j=0; j<text.length; j++){
-            text[j].style.fontSize = (pg2Width / 40) + "px"
-            text[j].style.marginTop = (pg2Width / 6) + "px"
+        let goneText = document.getElementById("goneText");
+        let antiText = document.getElementById("antiText");
+        let questText = document.getElementsByClassName("questT");
+        let siteExplain = document.getElementById("siteExplain");
+        let fontsArray = ["\"Victor Mono\", monospace","\"Galdeano\", sans-serif","\"IBM Plex Sans JP\", sans-serif"]
+        
+        goneText.style.fontSize = (pg2[i].offsetWidth / 20) + "px";
+        antiText.style.fontSize = (pg2[i].offsetWidth / 10) + "px";
+
+        text[i].style.fontSize = (pg2[i].offsetWidth / 35) + "px";
+        siteExplain.style.fontSize = (pg2[i].offsetWidth / 35) + "px";
+
+        //playables
+        if(i == 0 || i == 1){
+            pg2Iframe[i].style.width = (pg2[i].offsetWidth * .75) + "px";;
+            pg2Iframe[i].style.height = (pg2[i].offsetWidth * .75) + "px";
+            
+
+            if(pg2Iframe[i].offsetWidth > 400){
+                pg2Iframe[i].style.width = 400 + "px";
+                pg2Iframe[i].style.height = 400 + "px";
+            }
+        }
+
+        //stickynotes
+        let stickynotes = document.getElementsByClassName("stickynote");
+        let skills = document.getElementsByClassName("skills");
+        let h2s = document.getElementsByClassName("subtitle");
+        
+        stickynotes[i].style.width = (pg2[i].offsetWidth / 2) + "px";
+        stickynotes[i].style.height = (pg2[i].offsetHeight / 3) + "px";
+
+        if(i == 0 || i == 1){
+            h2s[i].style.fontSize = (stickynotes[i].offsetWidth / 10) + "px";
+            skills[i].style.fontSize = (stickynotes[i].offsetWidth / 17) + "px";
+        }
+        else if (i == 2){
+            h2s[i].style.fontSize = (pg2[i].offsetWidth / 20) + "px";
+        }
+        else{
+            h2s[i].style.fontSize = (stickynotes[i-1].offsetWidth / 10) + "px";
+            skills[i].style.fontSize = (stickynotes[i-1].offsetWidth / 17) + "px";
         }
     }
 
@@ -934,7 +984,6 @@
         }
 
         loopCount--;
-
     }
 
     //Window resize runs the length scripts again
