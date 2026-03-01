@@ -7,7 +7,7 @@
     
     <!-- Fonts -->
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Coming+Soon&family=Eagle+Lake&family=Galdeano&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Victor+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Caudex:ital,wght@0,400;0,700;1,400;1,700&family=Coming+Soon&family=Eagle+Lake&family=Galdeano&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Victor+Mono:ital,wght@0,100..700;1,100..700&display=swap');
     </style>
 
 </head>
@@ -16,6 +16,7 @@
     </div>
     <div id="pageBlur">
     </div>
+    <!-- <img class="fish" id="gold" src="files/gold.png"></img> -->
 
     <!-- Top and both sides of the bookshelf -->
     <div id="bookShelf1"></div>
@@ -331,7 +332,7 @@
                                 </div>
                         </div>
                         <div class="page pg2">
-                            <h3>Make Believe - Module 1 Outline</h3>
+                            <h3 class="mbText">Make Believe - Module 1 Outline</h3>
                             <iframe class="pdf" src="files/Make Believe - Module 1 Outline.pdf" title="Embedded PDF Document" frameborder="0" allowfullscreen></iframe>
                         </div>
                         </div>
@@ -373,7 +374,7 @@
                             </div>
                         </div>
                         <div class="page pg2">
-                            <h3>Honey Ham Questline</h3>
+                            <h3 class="mbText">Honey Ham Questline</h3>
                             <iframe class="pdf" src="files/Honey Ham Questline.pdf" title="Embedded PDF Document" frameborder="0" allowfullscreen></iframe>
                         </div>
                         </div>
@@ -418,7 +419,7 @@
                             </div>
                         </div>
                         <div class="page pg2">
-                            <h3>The Four Kingdoms: Rulebook</h3>
+                            <h3 id="kingText">The Four Kingdoms: Rulebook</h3>
                             <iframe class="pdf" src="files/FourKindoms_RuleBook.pdf" title="Embedded PDF Document" frameborder="0" allowfullscreen></iframe> 
                         </div>
                         </div>
@@ -463,7 +464,7 @@
                             </div>
                         </div>
                         <div class="page pg2">
-                            <h3>SFX Narrative</h3>
+                            <h3 id="sfxText">SFX Narrative</h3>
                             <iframe id="sfxFile" width="90%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%3Atracks%3A1951184619%3Fsecret_token%3Ds-4tdaQ8lPmaO&color=%23273d77&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
                         </div>
                         </div>
@@ -541,7 +542,7 @@
                             </div>
                         </div>
                         <div class="page pg2">
-                            <h3>Lord Tille</h3>
+                            <h3 id="lordText">Lord Tille</h3>
                             <iframe class="pdf" src="files/Lord Tille.pdf" title="Embedded PDF Document" frameborder="0" allowfullscreen></iframe> 
                         </div>
                         </div>
@@ -570,6 +571,7 @@
     let bookNum;
     let bookTF = false;
     let loopCount = 0;
+    let rayFlag = false;
 
     function shelfLength(){
         //* Header formatting *//
@@ -593,6 +595,7 @@
                 rays[i].style.width = (lights[0].offsetWidth * firstNum) + "px";
                 rays[i+1].style.width = (lights[0].offsetWidth * secondNum) + "px";
             }
+
         //* Header formatting *//
 
 
@@ -734,8 +737,6 @@
             twineBorder.style.height = (front[1].clientHeight * .9) + "px";
 
             //Book4 and Book5 specific elements
-            // front[3].style.height = (w * .18 - 5) + "px";
-            // front[4].style.height = (w * .18 - 5) + "px";
             papersTop[3].style.clipPath = "polygon("+ (wide+5.5) +"px 25%,.5% 21%,1.5% 18.5%,"+ (wide+5.5) +"px 18.5%)";
             papersTop[4].style.clipPath = "polygon("+ (wide+5.5) +"px 25%,.5% 21%,1.5% 18.5%,"+ (wide+5.5) +"px 18.5%)";
 
@@ -924,15 +925,31 @@
         let text = document.getElementsByClassName("desc");
         let goneText = document.getElementById("goneText");
         let antiText = document.getElementById("antiText");
-        let questText = document.getElementsByClassName("questT");
+        let aboutText = document.getElementById("aboutText");
+        let mbText = document.getElementsByClassName("mbText");
+        let kingText = document.getElementById("kingText");
+        let sfxText = document.getElementById("sfxText");
+        let lordText = document.getElementById("lordText");
         let siteExplain = document.getElementById("siteExplain");
         let fontsArray = ["\"Victor Mono\", monospace","\"Galdeano\", sans-serif","\"IBM Plex Sans JP\", sans-serif"]
         
         goneText.style.fontSize = (pg2[i].offsetWidth / 20) + "px";
         antiText.style.fontSize = (pg2[i].offsetWidth / 10) + "px";
+        aboutText.style.fontSize = (pg2[i].offsetWidth / 12) + "px";
+        mbText[0].style.fontSize = (pg2[i].offsetWidth / 20) + "px";
+        mbText[1].style.fontSize = (pg2[i].offsetWidth / 20) + "px";
+        kingText.style.fontSize = (pg2[i].offsetWidth / 15) + "px";
+        sfxText.style.fontSize = (pg2[i].offsetWidth / 15) + "px";
+        lordText.style.fontSize = (pg2[i].offsetWidth / 15) + "px";
 
         text[i].style.fontSize = (pg2[i].offsetWidth / 35) + "px";
         siteExplain.style.fontSize = (pg2[i].offsetWidth / 35) + "px";
+
+        let fontDivide = 0;
+        while(text[i].scrollHeight > text[i].clientHeight){
+            text[i].style.fontSize = (pg2[i].offsetWidth / fontDivide) + "px";
+            fontDivide++;
+        }
 
         //playables
         if(i == 0 || i == 1){
@@ -950,20 +967,35 @@
         let stickynotes = document.getElementsByClassName("stickynote");
         let skills = document.getElementsByClassName("skills");
         let h2s = document.getElementsByClassName("subtitle");
-        
-        stickynotes[i].style.width = (pg2[i].offsetWidth / 2) + "px";
-        stickynotes[i].style.height = (pg2[i].offsetHeight / 3) + "px";
 
         if(i == 0 || i == 1){
+            stickynotes[i].style.width = (pg2[i].offsetWidth / 2) + "px";
+            stickynotes[i].style.height = (pg2[i].offsetHeight / 3) + "px";
+
             h2s[i].style.fontSize = (stickynotes[i].offsetWidth / 10) + "px";
             skills[i].style.fontSize = (stickynotes[i].offsetWidth / 17) + "px";
+
+            fontDivide = 0;
+            while(skills[i-1].scrollHeight > skills[i-1].clientHeight){
+                skills[i-1].style.fontSize = (stickynotes[i-1].offsetWidth / fontDivide) + "px";
+                fontDivide++;
+            }
         }
         else if (i == 2){
             h2s[i].style.fontSize = (pg2[i].offsetWidth / 20) + "px";
         }
         else{
+            stickynotes[i-1].style.width = (pg2[i].offsetWidth / 2) + "px";
+            stickynotes[i-1].style.height = (pg2[i].offsetHeight / 3) + "px";
+
             h2s[i].style.fontSize = (stickynotes[i-1].offsetWidth / 10) + "px";
-            skills[i].style.fontSize = (stickynotes[i-1].offsetWidth / 17) + "px";
+            skills[i-1].style.fontSize = (stickynotes[i-1].offsetWidth / 17) + "px";
+
+            fontDivide = 0;
+            while(skills[i-1].scrollHeight > skills[i-1].clientHeight){
+                skills[i-1].style.fontSize = (stickynotes[i-1].offsetWidth / fontDivide) + "px";
+                fontDivide++;
+            }
         }
     }
 
